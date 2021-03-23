@@ -1,0 +1,50 @@
+public class SwapInt {
+    public static void main(String[] args) {
+    String s = "1991";
+    System.out.println(getSmallest(s));
+        s = "93561";
+        System.out.println(getSmallest(s));
+        s = "596";
+        System.out.println(getSmallest(s));
+        s = "10234";
+        System.out.println(getSmallest(s));
+        s = "120";
+        System.out.println(getSmallest(s));
+        s = "10091";
+        System.out.println(getSmallest(s));
+        s = "98761111";
+        System.out.println(getSmallest(s));
+    }
+    public static String getSmallest(String str)
+    {
+        char max='1',min='9';
+        boolean flagMax=true,flagMin=true;
+        int x=-1,y=-1;
+        for(int i=0,j=str.length()-1;i<=j;i++,j--) {
+            if (str.charAt(i) =='0' ||  str.charAt(j)=='0')
+                continue;
+            if (str.charAt(i) >= max && flagMax) {
+                max = str.charAt(i);
+                x = i;
+                flagMax=false;
+            }
+            else if (str.charAt(i) > max) {
+                max = str.charAt(i);
+                x = i;
+            }
+            if (str.charAt(j) < min) {
+                min = str.charAt(j);
+                y = j;
+            }
+        }
+        System.out.println(x+" "+y);
+        str = str.substring(0, x)
+                + min
+                + str.substring(x + 1);
+        str = str.substring(0, y)
+                + max
+                + str.substring(y + 1);
+    return str;
+    }
+
+}
